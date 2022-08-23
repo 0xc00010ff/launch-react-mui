@@ -1,12 +1,15 @@
-# Getting Started with Create React App
+# Launch a modern React web app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Bootstrapped with [Create React App](https://github.com/facebook/create-react-app) on [TypeScript](https://www.typescriptlang.org/docs/handbook/intro.html)
+- Components built with [MUI Joy](https://mui.com/joy-ui/getting-started/overview/) and [Emotion](https://emotion.sh/docs/introduction)
+- Routing with [React Router v6](https://reactrouter.com/docs/en/v6/getting-started/overview)
+- All the goodies like hot reloading and auto-formatting
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run dev`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -24,23 +27,11 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run lint`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Run the [ESLint](https://eslint.org/docs/latest/) checker and fixes any lint issues
 
-### `npm run eject`
+### `npm run format`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Run the [Prettier](https://prettier.io/docs/en/index.html) formatter
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
