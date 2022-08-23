@@ -4,7 +4,7 @@ import { CssVarsProvider, StyledEngineProvider } from "@mui/joy/styles";
 import { GlobalStyles } from "@mui/system";
 import type { Theme } from "@mui/joy/styles";
 import App from "./App";
-import ThemeStyles from "./components/Theme";
+import ThemeStyles from "./components/ThemeStyles";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
