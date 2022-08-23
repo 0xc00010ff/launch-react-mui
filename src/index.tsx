@@ -1,8 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { StyledEngineProvider } from "@mui/joy/styles";
-import "./index.css";
+import { CssVarsProvider, StyledEngineProvider } from "@mui/joy/styles";
+import { GlobalStyles } from "@mui/system";
+import type { Theme } from "@mui/joy/styles";
 import App from "./App";
+import ThemeStyles from "./components/Theme";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
@@ -11,7 +13,17 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <StyledEngineProvider injectFirst>
-      <App />
+      <CssVarsProvider disableTransitionOnChange theme={ThemeStyles}>
+        <GlobalStyles<Theme>
+          styles={(theme: Theme) => ({
+            body: {
+              margin: 0,
+              fontFamily: theme.vars.fontFamily.body,
+            },
+          })}
+        />
+        <App />
+      </CssVarsProvider>
     </StyledEngineProvider>
   </React.StrictMode>
 );
