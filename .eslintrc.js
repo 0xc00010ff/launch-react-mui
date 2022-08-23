@@ -27,6 +27,7 @@ module.exports = {
     project: './tsconfig.json',
   },
   rules: {
+    '@typescript-eslint/no-explicit-any': 'off',
     'linebreak-style': 'off',
     'import/extensions': 'off',
     'prettier/prettier': [

@@ -14,18 +14,12 @@ import ListItemButton from "@mui/joy/ListItemButton";
 import ListItemContent from "@mui/joy/ListItemContent";
 import Sheet from "@mui/joy/Sheet";
 import Typography from "@mui/joy/Typography";
-import * as React from "react";
 
 // Icons import
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import FolderOpenIcon from "@mui/icons-material/FolderOpen";
 
 // custom
-import AppHeader from "./AppHeader";
-import DataTable from "./DataTable";
-import DetailsAside from "./DetailsAside";
-import Layout from "./Layout";
-import Navigation from "./Navigation";
 
 export default function MediaGrid() {
   return (

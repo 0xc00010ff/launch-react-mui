@@ -1,13 +1,16 @@
-import React from "react";
+import { useColorScheme } from "@mui/joy/styles";
 import {
   BrowserRouter as Router,
-  Route,
   Navigate,
+  Route,
   Routes,
 } from "react-router-dom";
 import Dashboard from "./pages/dashboard";
 
 export default function FilesExample() {
+  const { setMode } = useColorScheme();
+  setMode("dark");
+
   return (
     <Router>
       <Routes>

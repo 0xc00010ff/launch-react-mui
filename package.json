@@ -1,6 +1,6 @@
 {
   "name": "frontend-app-react",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
     "@emotion/react": "latest",
@@ -42,7 +42,7 @@
     "prettier": "^2.7.1"
   },
   "scripts": {
-    "format": "prettier --write src/**/*.ts{,x}",
+    "format": "prettier --write src/*",
     "lint": "tsc --noEmit && eslint src/**/*.ts{,x} --fix",
     "dev": "npm run format && npm run lint && npm start",
     "start": "react-scripts start",

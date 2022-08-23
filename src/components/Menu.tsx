@@ -86,7 +86,7 @@ function Menu({
 
   const close = () => {
     setAnchorEl(null);
-    buttonRef.current!.focus();
+    buttonRef.current?.focus();
   };
 
   return (
