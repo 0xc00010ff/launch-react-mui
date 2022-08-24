@@ -1,9 +1,10 @@
 # Launch a modern React web app
+<img width="1728" alt="Screen Shot 2022-08-24 at 3 14 23 PM" src="https://user-images.githubusercontent.com/4950729/186533020-444a60f4-c1d8-4e48-86eb-340c01944c55.png">
 
 - Bootstrapped with [Create React App](https://github.com/facebook/create-react-app) on [TypeScript](https://www.typescriptlang.org/docs/handbook/intro.html)
 - Components built with [MUI Joy](https://mui.com/joy-ui/getting-started/overview/) and [Emotion](https://emotion.sh/docs/introduction)
 - Routing with [React Router v6](https://reactrouter.com/docs/en/v6/getting-started/overview)
-- All the goodies like hot reloading and auto-formatting
+- All the goodies like hot reloading and auto-formatting with [Prettier](https://prettier.io/docs/en/index.html)
 
 ## Available Scripts
 
@@ -35,3 +36,4 @@ Run the [ESLint](https://eslint.org/docs/latest/) checker and fixes any lint iss
 
 Run the [Prettier](https://prettier.io/docs/en/index.html) formatter
 
+Note: You can also set up VSCode to run formatting on save 
