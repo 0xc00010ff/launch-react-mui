@@ -1,5 +1,6 @@
 import Box from "@mui/joy/Box";
 import * as React from "react";
+import { Routes, Route, Navigate } from "react-router";
 
 import AppHeader from "../components/AppHeader";
 import DataTable from "../components/DataTable";
@@ -45,8 +46,11 @@ export default function Dashboard() {
               gap: 2,
             }}
           >
-            <DataTable />
-            <MediaGrid />
+            <Routes>
+              <Route path="/" element={<Navigate to="/dashboard/files" />} />
+              <Route path="/files" element={<DataTable />} />
+              <Route path="/media" element={<MediaGrid />} />
+            </Routes>
           </Box>
         </Layout.Main>
         <DetailsAside />

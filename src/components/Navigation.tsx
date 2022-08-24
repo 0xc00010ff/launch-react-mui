@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link, useLocation } from "react-router-dom";
 import Box from "@mui/joy/Box";
 import Typography from "@mui/joy/Typography";
 import IconButton from "@mui/joy/IconButton";
@@ -8,13 +9,14 @@ import ListItemButton from "@mui/joy/ListItemButton";
 import ListItemDecorator from "@mui/joy/ListItemDecorator";
 import ListItemContent from "@mui/joy/ListItemContent";
 
-// Icons import
 import FolderOpenIcon from "@mui/icons-material/FolderOpen";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 
 export default function Navigation() {
+  const location = useLocation();
+
   return (
     <List size="sm" sx={{ "--List-item-radius": "8px" }}>
       <ListItem nested sx={{ p: 0 }}>
@@ -47,38 +49,63 @@ export default function Navigation() {
             <KeyboardArrowDownRoundedIcon fontSize="small" color="primary" />
           </IconButton>
         </Box>
+
         <List
           aria-labelledby="nav-list-browse"
           sx={{
             "& .JoyListItemButton-root": { p: "8px" },
           }}
         >
-          <ListItem>
-            <ListItemButton variant="soft" color="primary">
-              <ListItemDecorator sx={{ color: "inherit" }}>
-                <FolderOpenIcon fontSize="small" />
-              </ListItemDecorator>
-              <ListItemContent>My files</ListItemContent>
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton>
-              <ListItemDecorator sx={{ color: "neutral.500" }}>
-                <ShareOutlinedIcon fontSize="small" />
-              </ListItemDecorator>
-              <ListItemContent>Shared files</ListItemContent>
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton>
-              <ListItemDecorator sx={{ color: "neutral.500" }}>
-                <DeleteRoundedIcon fontSize="small" />
-              </ListItemDecorator>
-              <ListItemContent>Trash</ListItemContent>
-            </ListItemButton>
-          </ListItem>
+          <Link to={`/dashboard/files`} style={{ textDecoration: "none" }}>
+            <ListItem>
+              <ListItemButton
+                variant={location.pathname.includes("files") ? "soft" : "plain"}
+                color={
+                  location.pathname.includes("files") ? "primary" : "neutral"
+                }
+              >
+                <ListItemDecorator sx={{ color: "inherit" }}>
+                  <FolderOpenIcon fontSize="small" />
+                </ListItemDecorator>
+                <ListItemContent>My files</ListItemContent>
+              </ListItemButton>
+            </ListItem>
+          </Link>
+
+          <Link to="/dashboard/media" style={{ textDecoration: "none" }}>
+            <ListItem>
+              <ListItemButton
+                variant={location.pathname.includes("media") ? "soft" : "plain"}
+                color={
+                  location.pathname.includes("media") ? "primary" : "neutral"
+                }
+              >
+                <ListItemDecorator sx={{ color: "inherit" }}>
+                  <ShareOutlinedIcon fontSize="small" />
+                </ListItemDecorator>
+                <ListItemContent>Shared files</ListItemContent>
+              </ListItemButton>
+            </ListItem>
+          </Link>
+
+          <Link to="/dashboard/trash" style={{ textDecoration: "none" }}>
+            <ListItem>
+              <ListItemButton
+                variant={location.pathname.includes("trash") ? "soft" : "plain"}
+                color={
+                  location.pathname.includes("trash") ? "primary" : "neutral"
+                }
+              >
+                <ListItemDecorator sx={{ color: "inherit" }}>
+                  <DeleteRoundedIcon fontSize="small" />
+                </ListItemDecorator>
+                <ListItemContent>Trash</ListItemContent>
+              </ListItemButton>
+            </ListItem>
+          </Link>
         </List>
       </ListItem>
+
       <ListItem nested>
         <Box
           sx={{
