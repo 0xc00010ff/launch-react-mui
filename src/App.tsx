@@ -16,6 +16,7 @@ export default function FilesExample() {
       <Routes>
         <Route path="/" element={<Navigate to="/dashboard" />} />
         <Route path="/dashboard/*" element={<Dashboard />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   );
