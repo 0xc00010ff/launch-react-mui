@@ -1,5 +1,5 @@
 # Launch a modern React web app
-<img width="1728" alt="Screen Shot 2022-08-24 at 3 14 23 PM" src="https://user-images.githubusercontent.com/4950729/186533020-444a60f4-c1d8-4e48-86eb-340c01944c55.png">
+<img width="720" alt="Dashboard app" src="https://user-images.githubusercontent.com/4950729/186533020-444a60f4-c1d8-4e48-86eb-340c01944c55.png">
 
 - Bootstrapped with [Create React App](https://github.com/facebook/create-react-app) on [TypeScript](https://www.typescriptlang.org/docs/handbook/intro.html)
 - Components built with [MUI Joy](https://mui.com/joy-ui/getting-started/overview/) and [Emotion](https://emotion.sh/docs/introduction)
