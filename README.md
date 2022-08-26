@@ -36,4 +36,4 @@ Run the [ESLint](https://eslint.org/docs/latest/) checker and fixes any lint iss
 
 Run the [Prettier](https://prettier.io/docs/en/index.html) formatter
 
-Note: You can also set up VSCode to run formatting on save 
+Note: You should also [set up VSCode to run formatting on save](https://scottsauber.com/2017/06/10/prettier-format-on-save-never-worry-about-formatting-javascript-again/)
