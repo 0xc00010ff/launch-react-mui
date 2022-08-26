@@ -12,7 +12,11 @@ import Sheet from "@mui/joy/Sheet";
 import CloseIcon from "@mui/icons-material/Close";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 
-export default function DetailsAside() {
+type Props = {
+  onClose?: () => void;
+};
+
+export default function DetailsAside(props: Props = {}) {
   return (
     <Sheet
       sx={{
@@ -20,11 +24,17 @@ export default function DetailsAside() {
         borderLeft: "1px solid",
         borderColor: "neutral.outlinedBorder",
         bgcolor: "background.componentBg",
+        minWidth: "400px",
       }}
     >
       <Box sx={{ p: 2, display: "flex", alignItems: "center" }}>
         <Typography sx={{ flex: 1 }}>torres-del-paine.png</Typography>
-        <IconButton variant="outlined" color="neutral" size="sm">
+        <IconButton
+          variant="outlined"
+          color="neutral"
+          size="sm"
+          onClick={props.onClose}
+        >
           <CloseIcon />
         </IconButton>
       </Box>

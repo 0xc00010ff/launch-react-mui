@@ -1,4 +1,6 @@
-import { extendTheme } from "@mui/joy/styles";
+import { deepmerge } from "@mui/utils";
+import { experimental_extendTheme as extendMuiTheme } from "@mui/material/styles";
+import { extendTheme as extendJoyTheme } from "@mui/joy/styles";
 
 declare module "@mui/joy/styles" {
   interface PaletteBackground {
@@ -7,7 +9,11 @@ declare module "@mui/joy/styles" {
   }
 }
 
-export default extendTheme({
+// We need to copy default theme properties from Material UI to use Transitions without error
+const muiTheme = extendMuiTheme();
+
+// This is our actual custom theme
+const joyTheme = extendJoyTheme({
   colorSchemes: {
     light: {
       palette: {
@@ -31,3 +37,7 @@ export default extendTheme({
     body: "'Inter', var(--joy-fontFamily-fallback)",
   },
 });
+
+const ThemeStyles = deepmerge(muiTheme, joyTheme);
+
+export default ThemeStyles;
