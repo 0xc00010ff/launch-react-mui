@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link, useLocation } from "react-router-dom";
-import Box from "@mui/joy/Box";
+import Box, { BoxProps } from "@mui/joy/Box";
 import Typography from "@mui/joy/Typography";
 import IconButton from "@mui/joy/IconButton";
 import List from "@mui/joy/List";
@@ -15,6 +15,7 @@ import FolderOpenIcon from "@mui/icons-material/FolderOpen";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
+import Sheet from "@mui/joy/Sheet";
 
 export default function Navigation() {
   const location = useLocation();
@@ -228,5 +229,73 @@ export default function Navigation() {
         </Collapse>
       </ListItem>
     </List>
+  );
+}
+
+export function SideBarNav(props: BoxProps) {
+  return (
+    <Box
+      component="nav"
+      className="Navigation"
+      {...props}
+      sx={[
+        {
+          p: 2,
+          bgcolor: "background.componentBg",
+          borderRight: "1px solid",
+          borderColor: "divider",
+          display: {
+            xs: "none",
+            sm: "initial",
+          },
+        },
+        ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
+      ]}
+    >
+      <Navigation />
+    </Box>
+  );
+}
+
+export function SideDrawer({
+  onClose,
+  ...props
+}: BoxProps & { onClose: React.MouseEventHandler<HTMLDivElement> }) {
+  return (
+    <Box
+      {...props}
+      sx={[
+        {
+          position: "fixed",
+          zIndex: 1200,
+          width: "100%",
+          height: "100%",
+        },
+        ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
+      ]}
+    >
+      <Box
+        role="button"
+        onClick={onClose}
+        sx={{
+          position: "absolute",
+          inset: 0,
+          bgcolor: (theme) =>
+            `rgba(${theme.vars.palette.neutral.darkChannel} / 0.8)`,
+        }}
+      />
+      <Sheet
+        sx={{
+          minWidth: 256,
+          width: "max-content",
+          height: "100%",
+          p: 2,
+          boxShadow: "lg",
+          bgcolor: "background.componentBg",
+        }}
+      >
+        <Navigation />
+      </Sheet>
+    </Box>
   );
 }
