@@ -11,6 +11,7 @@ export default function DataTable() {
     <Sheet
       variant="outlined"
       sx={{
+        gridArea: "master",
         borderRadius: "sm",
         gridColumn: "1/-1",
         bgcolor: "background.componentBg",

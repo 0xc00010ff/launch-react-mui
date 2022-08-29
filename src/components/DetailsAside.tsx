@@ -19,12 +19,15 @@ type Props = {
 export default function DetailsAside(props: Props = {}) {
   return (
     <Sheet
+      className="detail"
       sx={{
+        "grid-area": "detail",
         display: { xs: "none", sm: "initial" },
         borderLeft: "1px solid",
         borderColor: "neutral.outlinedBorder",
         bgcolor: "background.componentBg",
         minWidth: "400px",
+        height: "100%",
       }}
     >
       <Box sx={{ p: 2, display: "flex", alignItems: "center" }}>

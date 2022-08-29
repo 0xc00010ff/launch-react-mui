@@ -22,7 +22,7 @@ export default function MediaGrid() {
           gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
           gridGap: 12,
           overflow: "scroll",
-          p: 0,
+          p: 2,
         }}
       >
         <Card
