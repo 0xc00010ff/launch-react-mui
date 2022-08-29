@@ -1,4 +1,4 @@
-import Box from "@mui/joy/Box";
+import Box, { BoxProps } from "@mui/joy/Box";
 import IconButton from "@mui/joy/IconButton";
 import TextField from "@mui/joy/TextField";
 import Typography from "@mui/joy/Typography";
@@ -14,11 +14,11 @@ import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import ColorSchemeToggle from "./ColorSchemeToggle";
 import Menu from "./Menu";
 
-interface AppHeaderProps {
+interface AppHeaderProps extends BoxProps {
   onDrawerClick?: (open: boolean) => void;
 }
 
-export default function AppHeader(props: AppHeaderProps = {}) {
+function HeaderContent(props: AppHeaderProps = {}) {
   return (
     <>
       <Box
@@ -117,5 +117,37 @@ export default function AppHeader(props: AppHeaderProps = {}) {
         <ColorSchemeToggle />
       </Box>
     </>
+  );
+}
+
+export default function Header(props: AppHeaderProps = {}) {
+  return (
+    <Box
+      component="header"
+      className="Header"
+      {...props}
+      sx={[
+        {
+          p: 2,
+          gap: 2,
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gridColumn: "1 / -1",
+          borderBottom: "1px solid",
+          borderColor: "divider",
+          position: "sticky",
+          top: 0,
+          zIndex: 1100,
+          bgcolor: "background.componentBg",
+          boxSizing: "border-box",
+        },
+        ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
+      ]}
+    >
+      <HeaderContent {...props} />
+    </Box>
   );
 }

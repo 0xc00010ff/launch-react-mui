@@ -1,60 +1,66 @@
 import Box from "@mui/joy/Box";
 import * as React from "react";
-import { Routes, Route, Navigate } from "react-router";
-
+import { Navigate, Outlet, Route, Routes, useNavigate } from "react-router";
 import AppHeader from "../../components/AppHeader";
+import DashboardLayout from "../../components/DashboardLayout";
 import DataTable from "../../components/DataTable";
 import DetailsAside from "../../components/DetailsAside";
 import Layout from "../../components/Layout";
+import MasterDetail from "../../components/MasterDetail";
 import MediaGrid from "../../components/MediaGrid";
-import SideBar from "../../components/Sidebar";
+import SideBar, { SideBarNav } from "../../components/Sidebar";
 
 export default function Dashboard() {
   const [drawerOpenMobile, setDrawerOpenMobile] = React.useState(false);
-  const [detailOpen, setDetailOpen] = React.useState(true);
+
+  const navigate = useNavigate();
 
   return (
     <>
+      {/* mobile drawer */}
       {drawerOpenMobile && (
         <Layout.SideDrawer onClose={() => setDrawerOpenMobile(false)}>
           <SideBar />
         </Layout.SideDrawer>
       )}
-      <Layout.Root
-        sx={{
-          gridTemplateColumns: {
-            xs: "1fr",
-            sm: "minmax(64px, 200px) minmax(400px, 1fr)",
-            md: "minmax(160px, 280px) minmax(400px, 1fr) auto",
-          },
-          ...(drawerOpenMobile && {
-            height: "100vh",
-            overflow: "hidden",
-          }),
-        }}
-      >
-        <Layout.Header>
-          <AppHeader onDrawerClick={setDrawerOpenMobile} />
-        </Layout.Header>
-        <Layout.SideNav>
-          <SideBar />
-        </Layout.SideNav>
-        <Box
-          component="main"
-          className="Main"
-          sx={{
-            p: 2,
-            overflow: "scroll",
-          }}
+
+      <Routes>
+        <Route index element={<Navigate to="files" />} />
+        <Route
+          element={
+            <DashboardLayout>
+              <AppHeader onDrawerClick={setDrawerOpenMobile} />
+              <SideBarNav></SideBarNav>
+              <Box
+                component="main"
+                className="Main"
+                sx={{
+                  overflow: "scroll",
+                }}
+              >
+                <Outlet />
+              </Box>
+            </DashboardLayout>
+          }
         >
-          <Routes>
-            <Route path="/" element={<Navigate to="/dashboard/files" />} />
-            <Route path="/files" element={<DataTable />} />
-            <Route path="/media" element={<MediaGrid />} />
-          </Routes>
-        </Box>
-        {detailOpen && <DetailsAside onClose={() => setDetailOpen(false)} />}
-      </Layout.Root>
+          <Route
+            path="/files"
+            element={
+              <MasterDetail>
+                <DataTable />
+              </MasterDetail>
+            }
+          >
+            <Route
+              path=":file_id"
+              element={
+                <DetailsAside onClose={() => navigate("/dashboard/files")} /> // workaround. ".." flickers.
+              }
+            />
+          </Route>
+          <Route path="/media" element={<MediaGrid />} />
+        </Route>
+      </Routes>
     </>
   );
 }
