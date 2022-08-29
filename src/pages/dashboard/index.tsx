@@ -8,7 +8,7 @@ import DetailsAside from "../../components/DetailsAside";
 import Layout from "../../components/Layout";
 import MasterDetail from "../../components/MasterDetail";
 import MediaGrid from "../../components/MediaGrid";
-import SideBar, { SideBarNav } from "../../components/Sidebar";
+import SideBar from "../../components/Sidebar";
 
 export default function Dashboard() {
   const [drawerOpenMobile, setDrawerOpenMobile] = React.useState(false);
@@ -30,14 +30,8 @@ export default function Dashboard() {
           element={
             <DashboardLayout>
               <AppHeader onDrawerClick={setDrawerOpenMobile} />
-              <SideBarNav></SideBarNav>
-              <Box
-                component="main"
-                className="Main"
-                sx={{
-                  overflow: "scroll",
-                }}
-              >
+              <SideBar></SideBar>
+              <Box component="main" className="Main">
                 <Outlet />
               </Box>
             </DashboardLayout>

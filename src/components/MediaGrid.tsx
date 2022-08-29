@@ -21,7 +21,7 @@ export default function MediaGrid() {
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
           gridGap: 12,
-          overflow: "scroll",
+          overflow: "auto",
           p: 2,
         }}
       >

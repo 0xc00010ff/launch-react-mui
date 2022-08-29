@@ -10,21 +10,13 @@ export default function MasterDetail(props: BoxProps) {
         width: "100%",
         display: "grid",
         gridTemplateColumns: "1fr auto",
-        gridTemplateRows: "1fr",
+        gridTemplateRows: "minmax(0, 1fr)",
         gridTemplateAreas: `
           "master detail"
         `,
       }}
     >
-      <Box
-        className="masterContent"
-        sx={{
-          p: 2,
-        }}
-      >
-        {props.children}
-      </Box>
-      {/* Optional React Router outlet, for when the detail is supplied by url rules */}
+      {props.children}
       <Outlet />
     </Box>
   );

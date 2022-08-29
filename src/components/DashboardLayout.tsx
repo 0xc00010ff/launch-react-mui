@@ -26,7 +26,7 @@ export default function DashboardLayout(props: BoxProps) {
             sm: "minmax(64px, 200px) minmax(450px, 1fr)",
             md: "minmax(160px, 300px) minmax(300px, 1fr)",
           },
-          gridTemplateRows: "64px 1fr",
+          gridTemplateRows: "64px minmax(0, 1fr)",
           gridTemplateAreas: `
             "header header"
             "nav main"
@@ -34,7 +34,6 @@ export default function DashboardLayout(props: BoxProps) {
           `,
           height: "100vh",
           width: "100vw",
-          overflow: "scroll",
           boxSizing: "border-box",
         },
         ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
