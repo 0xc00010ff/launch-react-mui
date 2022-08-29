@@ -13,7 +13,7 @@ import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 
 // custom
 
-export default function MediaGrid() {
+export default function Media() {
   return (
     <>
       <List

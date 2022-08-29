@@ -6,7 +6,7 @@ import Typography from "@mui/joy/Typography";
 
 import FolderOpenIcon from "@mui/icons-material/FolderOpen";
 
-export default function DataTable() {
+export default function Files() {
   return (
     <Box
       sx={{

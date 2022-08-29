@@ -2,13 +2,14 @@ import Box from "@mui/joy/Box";
 import * as React from "react";
 import { Navigate, Outlet, Route, Routes, useNavigate } from "react-router";
 import AppHeader from "../../components/AppHeader";
-import DashboardLayout from "../../components/DashboardLayout";
-import DataTable from "../../components/DataTable";
+import DashboardLayout, { SideDrawer } from "../../components/DashboardLayout";
 import DetailsAside from "../../components/DetailsAside";
-import Layout from "../../components/Layout";
-import MasterDetail from "../../components/MasterDetail";
-import MediaGrid from "../../components/MediaGrid";
 import SideBar from "../../components/Sidebar";
+import MasterDetail from "../../components/MasterDetail";
+
+import Files from "./files";
+import Media from "./media";
+import Trash from "./trash";
 
 export default function Dashboard() {
   const [drawerOpenMobile, setDrawerOpenMobile] = React.useState(false);
@@ -19,9 +20,9 @@ export default function Dashboard() {
     <>
       {/* mobile drawer */}
       {drawerOpenMobile && (
-        <Layout.SideDrawer onClose={() => setDrawerOpenMobile(false)}>
+        <SideDrawer onClose={() => setDrawerOpenMobile(false)}>
           <SideBar />
-        </Layout.SideDrawer>
+        </SideDrawer>
       )}
 
       <Routes>
@@ -41,7 +42,8 @@ export default function Dashboard() {
             path="/files"
             element={
               <MasterDetail>
-                <DataTable />
+                <Files />
+                <Outlet />
               </MasterDetail>
             }
           >
@@ -52,7 +54,9 @@ export default function Dashboard() {
               }
             />
           </Route>
-          <Route path="/media" element={<MediaGrid />} />
+          <Route path="/media" element={<Media />} />
+          <Route path="/trash" element={<Trash />} />
+          <Route path="*" element={<Navigate to="files" />} />
         </Route>
       </Routes>
     </>

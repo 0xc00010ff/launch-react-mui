@@ -1,7 +1,5 @@
 import Box, { BoxProps } from "@mui/joy/Box";
 
-import { Outlet } from "react-router-dom";
-
 export default function MasterDetail(props: BoxProps) {
   return (
     <Box
@@ -17,7 +15,6 @@ export default function MasterDetail(props: BoxProps) {
       }}
     >
       {props.children}
-      <Outlet />
     </Box>
   );
 }
