@@ -12,11 +12,15 @@ import Sheet from "@mui/joy/Sheet";
 import CloseIcon from "@mui/icons-material/Close";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 
+import { useParams } from "react-router-dom";
+
 type Props = {
   onClose?: () => void;
 };
 
 export default function DetailsAside(props: Props = {}) {
+  const params = useParams();
+
   return (
     <Sheet
       className="detail"
@@ -33,7 +37,7 @@ export default function DetailsAside(props: Props = {}) {
     >
       <>
         <Box sx={{ p: 2, display: "flex", alignItems: "center" }}>
-          <Typography sx={{ flex: 1 }}>torres-del-paine.png</Typography>
+          <Typography sx={{ flex: 1 }}>{params.file_id}</Typography>
           <IconButton
             variant="outlined"
             color="neutral"
@@ -113,7 +117,7 @@ export default function DetailsAside(props: Props = {}) {
         >
           <Typography level="body2">Type</Typography>
           <Typography level="body2" textColor="text.primary">
-            Image
+            Folder
           </Typography>
 
           <Typography level="body2">Size</Typography>
@@ -128,7 +132,7 @@ export default function DetailsAside(props: Props = {}) {
 
           <Typography level="body2">Location</Typography>
           <Typography level="body2" textColor="text.primary">
-            Travel pictures
+            My files
           </Typography>
 
           <Typography level="body2">Owner</Typography>
