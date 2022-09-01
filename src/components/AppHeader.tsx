@@ -45,7 +45,7 @@ function HeaderContent(props: AppHeaderProps = {}) {
           <FindInPageRoundedIcon />
         </IconButton>
         <Typography component="h1" fontWeight="xl">
-          NotesApp
+          Example
         </Typography>
       </Box>
       <TextField
