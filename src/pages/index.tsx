@@ -9,7 +9,7 @@ import {
 
 import Dashboard from "./dashboard";
 
-export default function FilesExample() {
+export default function Pages() {
   const { setMode } = useColorScheme();
   useEffect(() => {
     setMode("dark");

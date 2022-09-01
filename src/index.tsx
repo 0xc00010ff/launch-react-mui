@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { CssVarsProvider, StyledEngineProvider } from "@mui/joy/styles";
 import { GlobalStyles } from "@mui/system";
 import type { Theme } from "@mui/joy/styles";
-import App from "./pages";
+import Pages from "./pages";
 import ThemeStyles from "./components/ThemeStyles";
 import reportWebVitals from "./reportWebVitals";
 
@@ -29,7 +29,7 @@ root.render(
             },
           })}
         />
-        <App />
+        <Pages />
       </CssVarsProvider>
     </StyledEngineProvider>
   </React.StrictMode>
