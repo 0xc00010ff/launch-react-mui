@@ -20,13 +20,6 @@ root.render(
               margin: 0,
               fontFamily: theme.vars.fontFamily.body,
             },
-            MuiLink: {
-              styleOverrides: {
-                root: {
-                  textDecoration: "none",
-                },
-              },
-            },
           })}
         />
         <Pages />

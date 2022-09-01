@@ -15,6 +15,7 @@ interface FileListItem {
 interface FileListProps {
   files: FileListItem[];
   selectedFile?: string;
+  onSelect?: (index: number) => void;
 }
 
 export default function FileList(
@@ -72,58 +73,57 @@ export default function FileList(
             },
           }}
         >
-          {props.files.map((file) => (
-            <Link to={file.title} style={{ textDecoration: "none" }}>
-              <ListItemButton
-                sx={[
-                  {
-                    p: 2,
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr 1fr 1fr",
-                  },
-                ]}
+          {props.files.map((file, index) => (
+            <ListItemButton
+              onClick={() => props.onSelect?.(index)}
+              sx={[
+                {
+                  p: 2,
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr 1fr 1fr",
+                },
+              ]}
+            >
+              <Typography
+                level="body2"
+                startDecorator={
+                  <FolderOpenIcon color="primary" sx={{ mr: 2 }} />
+                }
+                sx={{ alignItems: "flex-start" }}
               >
-                <Typography
-                  level="body2"
-                  startDecorator={
-                    <FolderOpenIcon color="primary" sx={{ mr: 2 }} />
-                  }
-                  sx={{ alignItems: "flex-start" }}
+                {file.title}
+              </Typography>
+              <Typography level="body2">26 May 2010, 7PM</Typography>
+              <Typography level="body2" sx={{ color: "success.600" }}>
+                123.3KB
+              </Typography>
+              <Box>
+                <AvatarGroup
+                  size="sm"
+                  sx={{
+                    "--AvatarGroup-gap": "-8px",
+                    "--Avatar-size": "24px",
+                  }}
                 >
-                  {file.title}
-                </Typography>
-                <Typography level="body2">26 May 2010, 7PM</Typography>
-                <Typography level="body2" sx={{ color: "success.600" }}>
-                  123.3KB
-                </Typography>
-                <Box>
-                  <AvatarGroup
-                    size="sm"
-                    sx={{
-                      "--AvatarGroup-gap": "-8px",
-                      "--Avatar-size": "24px",
-                    }}
-                  >
-                    <Avatar
-                      src="https://i.pravatar.cc/24?img=6"
-                      srcSet="https://i.pravatar.cc/48?img=6 2x"
-                    />
-                    <Avatar
-                      src="https://i.pravatar.cc/24?img=7"
-                      srcSet="https://i.pravatar.cc/48?img=7 2x"
-                    />
-                    <Avatar
-                      src="https://i.pravatar.cc/24?img=8"
-                      srcSet="https://i.pravatar.cc/48?img=8 2x"
-                    />
-                    <Avatar
-                      src="https://i.pravatar.cc/24?img=9"
-                      srcSet="https://i.pravatar.cc/48?img=9 2x"
-                    />
-                  </AvatarGroup>
-                </Box>
-              </ListItemButton>
-            </Link>
+                  <Avatar
+                    src="https://i.pravatar.cc/24?img=6"
+                    srcSet="https://i.pravatar.cc/48?img=6 2x"
+                  />
+                  <Avatar
+                    src="https://i.pravatar.cc/24?img=7"
+                    srcSet="https://i.pravatar.cc/48?img=7 2x"
+                  />
+                  <Avatar
+                    src="https://i.pravatar.cc/24?img=8"
+                    srcSet="https://i.pravatar.cc/48?img=8 2x"
+                  />
+                  <Avatar
+                    src="https://i.pravatar.cc/24?img=9"
+                    srcSet="https://i.pravatar.cc/48?img=9 2x"
+                  />
+                </AvatarGroup>
+              </Box>
+            </ListItemButton>
           ))}
         </List>
       </Sheet>

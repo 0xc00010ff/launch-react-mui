@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Outlet, Route, Routes, useNavigate } from "react-router-dom";
 import FileList from "../../../components/FileList";
 import MasterDetail from "../../../components/MasterDetail";
 import FileDetail from "./[fileId]";
+import ExampleFile from "../../../models/ExampleFile";
 
-const fakeData = [
+const fakeData: ExampleFile[] = [
   { title: "Work" },
   { title: "Finance" },
   { title: "Science" },
@@ -25,23 +27,28 @@ const fakeData = [
 
 export default function Files() {
   const navigate = useNavigate();
+  const [selectedFile, setSelectedFile] = useState<ExampleFile | undefined>(
+    undefined
+  );
+
+  const onFileSelect = (fileIndex: number) => {
+    const file = fakeData[fileIndex];
+    setSelectedFile(file);
+    navigate(file.title);
+  };
+
   return (
     <Routes>
       <Route
         path="/*"
         element={
           <MasterDetail>
-            <FileList files={fakeData} />
+            <FileList files={fakeData} onSelect={onFileSelect} />
             <Outlet />
           </MasterDetail>
         }
       >
-        <Route
-          path=":file_id"
-          element={
-            <FileDetail onClose={() => navigate("/dashboard/files")} /> // workaround. ".." flickers.
-          }
-        />
+        <Route path=":file_id" element={<FileDetail file={selectedFile} />} />
       </Route>
     </Routes>
   );
