@@ -10,32 +10,23 @@ import List from "@mui/joy/List";
 import ListItemButton from "@mui/joy/ListItemButton";
 
 const fakeData = [
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
-  { title: crypto.randomUUID().substring(0, 13) },
+  { title: "Work" },
+  { title: "Finance" },
+  { title: "Science" },
+  { title: "Art" },
+  { title: "Architecture" },
+  { title: "Skateboarding" },
+  { title: "Airplanes" },
+  { title: "Drones" },
+  { title: "Cars" },
+  { title: "Video Production" },
+  { title: "Dev" },
+  { title: "Engineering" },
+  { title: "3d Printing" },
+  { title: "Fitness" },
+  { title: "Travel" },
+  { title: "Movies" },
+  { title: "Random" },
 ];
 
 export default function Files() {
@@ -55,17 +46,11 @@ export default function Files() {
           bgcolor: "background.componentBg",
           display: "flex",
           flexDirection: "column",
-          "& > *": {
-            p: 2,
-            "&:nth-child(n):not(:nth-last-child(-n+4))": {
-              borderBottom: "1px solid",
-              borderColor: "divider",
-            },
-          },
         }}
       >
         <Box
           sx={{
+            p: 2,
             display: "grid",
             gridTemplateColumns: "1fr 1fr 1fr 1fr",
             borderBottom: "1px solid",
@@ -91,7 +76,7 @@ export default function Files() {
             width: "100%",
             p: 0,
             "& > *": {
-              "&:nth-child(n):not(:nth-last-child(-n+4))": {
+              "&:nth-child(n):not(:nth-last-child(-n+1))": {
                 borderBottom: "1px solid",
                 borderColor: "divider",
               },
@@ -113,19 +98,13 @@ export default function Files() {
                     display: "grid",
                     gridTemplateColumns: "1fr 1fr 1fr 1fr",
                   },
-                  // (theme) => ({
-                  //   "&:hover": {
-                  //     ...theme.variants.outlinedHover.neutral,
-                  //     cursor: "pointer",
-                  //   },
-                  //   "&:active": theme.variants.softHover.neutral,
-                  //   cursor: "pointer",
-                  // }),
                 ]}
               >
                 <Typography
                   level="body2"
-                  startDecorator={<FolderOpenIcon color="primary" />}
+                  startDecorator={
+                    <FolderOpenIcon color="primary" sx={{ mr: 2 }} />
+                  }
                   sx={{ alignItems: "flex-start" }}
                 >
                   {data.title}
