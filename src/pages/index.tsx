@@ -7,7 +7,7 @@ import {
   Routes,
 } from "react-router-dom";
 
-import Dashboard from "./pages/dashboard";
+import Dashboard from "./dashboard";
 
 export default function FilesExample() {
   const { setMode } = useColorScheme();

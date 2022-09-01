@@ -3,7 +3,7 @@ import * as React from "react";
 import { Navigate, Outlet, Route, Routes, useNavigate } from "react-router";
 import AppHeader from "../../components/AppHeader";
 import DashboardLayout, { SideDrawer } from "../../components/DashboardLayout";
-import DetailsAside from "../../components/DetailsAside";
+import FileDetail from "./files/[fileId]";
 import SideBar from "../../components/Sidebar";
 import MasterDetail from "../../components/MasterDetail";
 
@@ -50,7 +50,7 @@ export default function Dashboard() {
             <Route
               path=":file_id"
               element={
-                <DetailsAside onClose={() => navigate("/dashboard/files")} /> // workaround. ".." flickers.
+                <FileDetail onClose={() => navigate("/dashboard/files")} /> // workaround. ".." flickers.
               }
             />
           </Route>

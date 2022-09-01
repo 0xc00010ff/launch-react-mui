@@ -18,7 +18,7 @@ type Props = {
   onClose?: () => void;
 };
 
-export default function DetailsAside(props: Props = {}) {
+export default function FileDetail(props: Props = {}) {
   const params = useParams();
 
   return (
