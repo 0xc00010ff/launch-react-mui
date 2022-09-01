@@ -1,9 +1,9 @@
-import { useState } from "react";
 import { Outlet, Route, Routes, useNavigate } from "react-router-dom";
 import FileList from "../../../components/FileList";
 import MasterDetail from "../../../components/MasterDetail";
 import FileDetail from "./[fileId]";
 import ExampleFile from "../../../models/ExampleFile";
+import useTitle from "../../../utils/useTitle";
 
 const fakeData: ExampleFile[] = [
   { title: "Work" },
@@ -26,14 +26,11 @@ const fakeData: ExampleFile[] = [
 ];
 
 export default function Files() {
+  useTitle("Example | Files");
   const navigate = useNavigate();
-  const [selectedFile, setSelectedFile] = useState<ExampleFile | undefined>(
-    undefined
-  );
 
   const onFileSelect = (fileIndex: number) => {
     const file = fakeData[fileIndex];
-    setSelectedFile(file);
     navigate(file.title);
   };
 
@@ -48,7 +45,7 @@ export default function Files() {
           </MasterDetail>
         }
       >
-        <Route path=":file_id" element={<FileDetail file={selectedFile} />} />
+        <Route path=":fileId" element={<FileDetail />} />
       </Route>
     </Routes>
   );

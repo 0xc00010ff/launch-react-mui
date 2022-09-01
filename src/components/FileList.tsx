@@ -6,7 +6,7 @@ import Typography from "@mui/joy/Typography";
 import List from "@mui/joy/List";
 import ListItemButton from "@mui/joy/ListItemButton";
 import FolderOpenIcon from "@mui/icons-material/FolderOpen";
-import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 interface FileListItem {
   title: string;
@@ -21,6 +21,7 @@ interface FileListProps {
 export default function FileList(
   props: FileListProps = { files: [], selectedFile: "none" }
 ) {
+  const location = useLocation();
   return (
     <Box
       sx={{
@@ -75,6 +76,12 @@ export default function FileList(
         >
           {props.files.map((file, index) => (
             <ListItemButton
+              variant={
+                location.pathname.includes(file.title) ? "soft" : "plain"
+              }
+              color={
+                location.pathname.includes(file.title) ? "primary" : "neutral"
+              }
               onClick={() => props.onSelect?.(index)}
               sx={[
                 {

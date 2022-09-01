@@ -13,9 +13,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 
 interface FileDetailProps {
-  item?: {
-    title: string;
-  };
+  title?: string;
   onClose?: () => void;
 }
 
@@ -36,7 +34,7 @@ export default function Detail(props: FileDetailProps) {
     >
       <>
         <Box sx={{ p: 2, display: "flex", alignItems: "center" }}>
-          <Typography sx={{ flex: 1 }}>{props.item?.title}</Typography>
+          <Typography sx={{ flex: 1 }}>{props.title}</Typography>
           <IconButton
             variant="outlined"
             color="neutral"

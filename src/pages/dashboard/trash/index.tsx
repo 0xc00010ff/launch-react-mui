@@ -1,6 +1,8 @@
 import Box from "@mui/joy/Box";
+import useTitle from "../../../utils/useTitle";
 
 export default function Trash() {
+  useTitle("Example | Trash");
   return (
     <>
       <Box

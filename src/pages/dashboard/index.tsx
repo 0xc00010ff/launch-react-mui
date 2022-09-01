@@ -1,6 +1,6 @@
 import Box from "@mui/joy/Box";
 import * as React from "react";
-import { Navigate, Outlet, Route, Routes, useNavigate } from "react-router-dom";
+import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import AppHeader from "../../components/AppHeader";
 import DashboardLayout, { SideDrawer } from "../../components/DashboardLayout";
 import SideBar from "../../components/Sidebar";
@@ -9,10 +9,12 @@ import Files from "./files";
 import Media from "./media";
 import Trash from "./trash";
 
-export default function Dashboard() {
-  const [drawerOpenMobile, setDrawerOpenMobile] = React.useState(false);
+import useTitle from "../../utils/useTitle";
 
-  const navigate = useNavigate();
+export default function Dashboard() {
+  useTitle("Example | Dashboard");
+
+  const [drawerOpenMobile, setDrawerOpenMobile] = React.useState(false);
 
   return (
     <>

@@ -10,10 +10,12 @@ import Typography from "@mui/joy/Typography";
 
 // Icons import
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import useTitle from "../../../utils/useTitle";
 
 // custom
 
 export default function Media() {
+  useTitle("Example | Media");
   return (
     <>
       <List

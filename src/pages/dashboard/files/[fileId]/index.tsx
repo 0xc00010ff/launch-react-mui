@@ -1,14 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Detail from "../../../../components/Detail";
-import ExampleFile from "../../../../models/ExampleFile";
+import useTitle from "../../../../utils/useTitle";
 
-type Props = {
-  file?: ExampleFile;
-  onClose?: () => void;
-};
-
-export default function FileDetail(props: Props = {}) {
+export default function FileDetail() {
+  const params = useParams();
   const navigate = useNavigate();
+  useTitle(`${params.fileId}`);
 
-  return <Detail item={props.file} onClose={() => navigate("..")} />;
+  return <Detail title={params.fileId} onClose={() => navigate("..")} />;
 }

@@ -125,7 +125,7 @@ export default function Navigation(props: BoxProps) {
                     <ListItemDecorator sx={{ color: "inherit" }}>
                       <ShareOutlinedIcon fontSize="small" />
                     </ListItemDecorator>
-                    <ListItemContent>Shared files</ListItemContent>
+                    <ListItemContent>Media</ListItemContent>
                   </ListItemButton>
                 </ListItem>
               </Link>
