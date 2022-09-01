@@ -1,4 +1,4 @@
-# Launch a modern React web app
+# Launch a modern React web dashboard app
 <img width="720" alt="Dashboard app" src="https://user-images.githubusercontent.com/4950729/186533020-444a60f4-c1d8-4e48-86eb-340c01944c55.png">
 
 - Bootstrapped with [Create React App](https://github.com/facebook/create-react-app) on [TypeScript](https://www.typescriptlang.org/docs/handbook/intro.html)
@@ -37,3 +37,11 @@ Run the [ESLint](https://eslint.org/docs/latest/) checker and fixes any lint iss
 Run the [Prettier](https://prettier.io/docs/en/index.html) formatter
 
 Note: You should also [set up VSCode to run formatting on save](https://scottsauber.com/2017/06/10/prettier-format-on-save-never-worry-about-formatting-javascript-again/)
+
+## Project structure
+
+```js
+src/index.tsx       // the root React entrypoint
+src/pages/index.tsx // The top level router
+src/pages/*         // the inner level routers and page components. The file structure matches the url structure.
+```
