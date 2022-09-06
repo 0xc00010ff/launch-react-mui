@@ -1,30 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { CssVarsProvider, StyledEngineProvider } from "@mui/joy/styles";
-import { GlobalStyles } from "@mui/system";
-import type { Theme } from "@mui/joy/styles";
-import Pages from "./pages";
-import ThemeStyles from "./components/ThemeStyles";
+import App from "./app";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <StyledEngineProvider injectFirst>
-      <CssVarsProvider disableTransitionOnChange theme={ThemeStyles}>
-        <GlobalStyles<Theme>
-          styles={(theme: Theme) => ({
-            body: {
-              margin: 0,
-              fontFamily: theme.vars.fontFamily.body,
-            },
-          })}
-        />
-        <Pages />
-      </CssVarsProvider>
-    </StyledEngineProvider>
+    <App />
   </React.StrictMode>
 );
 

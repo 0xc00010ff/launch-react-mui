@@ -38,6 +38,6 @@ const joyTheme = extendJoyTheme({
   },
 });
 
-const ThemeStyles = deepmerge(muiTheme, joyTheme);
+const ThemeOverrides = deepmerge(muiTheme, joyTheme);
 
-export default ThemeStyles;
+export default ThemeOverrides;
