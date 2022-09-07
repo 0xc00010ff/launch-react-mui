@@ -42,6 +42,7 @@ Note: You should also [set up VSCode to run formatting on save](https://scottsau
 
 ```js
 src/index.tsx       // the root React entrypoint
+src/app.tsx         // The app wrapper
 src/pages/index.tsx // The top level router
-src/pages/*         // the inner level routers and page components. The file structure matches the url structure.
+src/pages/*/*.      // The inner level routers and page components. The file structure matches the url structure.
 ```
